@@ -21,7 +21,6 @@ import {
   export const find = async (opts?: FindManyOptions<Publish>): Promise<Publish[]> => {
     logger.info("Find");
     const repository = getRepository(Publish);
-    console.log(opts)
     const data = await repository.find(opts);
     return data;
   };

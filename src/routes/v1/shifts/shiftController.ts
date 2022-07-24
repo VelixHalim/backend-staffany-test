@@ -70,27 +70,6 @@ export const create = async (req: Request, h: ResponseToolkit) => {
   try {
     const body = req.payload as ICreateShift;
     
-    // let date= new Date(body.date) 
-    // let d =date.getDay()
-    // let start = date.getDate() - d+(d==0?-6:1)
-    // let end = start+6
-    // let monday = new Date(date.setDate(start))
-    // let sunday = new Date(date.setDate(end))
-    // let startDate = moment(monday).format("YYYY-MM-DD")
-    // let endDate = moment(sunday).format("YYYY-MM-DD")
-    
-    // const filter ={where:{startDate:`${startDate}`, endDate:`${endDate}`}} 
-    // const checkpublish = await publishUsecase.find(filter)
-    
-    // if(checkpublish.length>0){
-    //   let errorData={
-    //     status: 300,
-    //     error:"shift has been published",
-    //     message:"Cannot create shift, shift has been published"   
-    //   }
-    //   logger.error(errorData.message)
-    //   return errorHandler(h,errorData)
-    // }
     let checkpublish = await checkPublishOrNot(body, h)
     if(checkpublish.length>0){
       let errorData={

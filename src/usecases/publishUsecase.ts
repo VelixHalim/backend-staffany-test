@@ -12,7 +12,6 @@ export const create = async (payload: ICreatePublish): Promise<Publish> => {
   publish.startDate = payload.startDate;
   publish.endDate = payload.endDate;
   publish.isPublish = payload.isPublish;
-  console.log(publish)
 
   return publishRepository.create(publish);
 };

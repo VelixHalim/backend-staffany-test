@@ -2,6 +2,7 @@ import { Server } from '@hapi/hapi';
 import * as publishController from './publishController';
 import { createPublishDto } from '../../../shared/dtos';
 
+//get publish data
 export default function (server: Server, basePath: string) {
   server.route({
     method: "GET",
@@ -14,6 +15,7 @@ export default function (server: Server, basePath: string) {
     }
   });
   
+  // post publish data
   server.route({
     method: "POST",
     path: basePath,
